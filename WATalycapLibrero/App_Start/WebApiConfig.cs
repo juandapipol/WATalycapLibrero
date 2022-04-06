@@ -9,7 +9,10 @@ namespace WATalycapLibrero
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuración y servicios de Web API
+            // Visualiza el resultado en Json
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
 
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
