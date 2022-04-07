@@ -39,5 +39,28 @@ namespace ClienteWebApiLibrero.Controllers
                 return View(bookInfo);
             }
         }
+
+        public ActionResult create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult create(Books books)
+        {
+            using (var cli = new HttpClient())
+            {
+                cli.BaseAddress = new Uri("https://fakerestapi.azurewebsites.net/api/v1/Books");
+                var postTask = cli.PostAsJsonAsync<Books>("books", books);
+                postTask.Wait();
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            ModelState.AddModelError(string.Empty, "Error, contacta al administrador.");
+            return View(books);
+        }
     }
 }

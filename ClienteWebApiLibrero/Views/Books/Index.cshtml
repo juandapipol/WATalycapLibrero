@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Nuevo", "Create")
+    @Html.ActionLink("Nuevo libro", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,13 +35,13 @@
             @Html.DisplayFor(modelItem => item.title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.description)
+            @Html.TextAreaFor(modelItem => item.description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.pageCount)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.excerpt)
+            @Html.TextAreaFor(modelItem => item.excerpt)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.publishDate)
