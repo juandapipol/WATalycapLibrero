@@ -62,5 +62,78 @@ namespace ClienteWebApiLibrero.Controllers
             ModelState.AddModelError(string.Empty, "Error, contacta al administrador.");
             return View(books);
         }
+
+        public ActionResult Edit(int id)
+        {
+            Books books = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(BaseUrl);
+                var responseTask = client.GetAsync("api/v1/Books/" + id.ToString());
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<Books>();
+                    readTask.Wait();
+                    books = readTask.Result;
+                }
+            }
+            return View(books);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Books books)
+        {
+            using (var cli = new HttpClient())
+            {
+                cli.BaseAddress = new Uri(BaseUrl);
+                var putTask = cli.PutAsJsonAsync($"api/v1/Books/{books.id}", books);
+                putTask.Wait();
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(books);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Books books = null;
+            using (var cli = new HttpClient())
+            {
+                cli.BaseAddress = new Uri(BaseUrl);
+                var responseTask = cli.GetAsync("api/v1/Books/" + id.ToString());
+                responseTask.Wait();
+                var res = responseTask.Result;
+                if (res.IsSuccessStatusCode)
+                {
+                    var readTask = res.Content.ReadAsAsync<Books>();
+                    readTask.Wait();
+                    books = readTask.Result;
+                }
+            }
+            return View(books);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Books books, int id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(BaseUrl);
+                var deleteTask = client.DeleteAsync($"api/v1/Books/" + id.ToString());
+                deleteTask.Wait();
+                var result = deleteTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(books);
+        }
     }
 }

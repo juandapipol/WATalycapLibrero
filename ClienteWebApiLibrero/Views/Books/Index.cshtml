@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.publishDate)
         </td>
         <td>
-            @Html.ActionLink("Edita", "Edit", new { /*id=item.id*/ }) |
+            @Html.ActionLink("Edita", "Edit", new { id=item.id }) |
             @*@Html.ActionLink("Details", "Details", new { id=item.id })*@ 
-            @Html.ActionLink("Elimina", "Delete", new { /*id=item.id*/ })
+            @Html.ActionLink("Elimina", "Delete", new { id=item.id })
         </td>
     </tr>
 }

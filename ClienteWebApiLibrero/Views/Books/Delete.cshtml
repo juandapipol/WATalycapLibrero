@@ -1,0 +1,64 @@
+﻿@model ClienteWebApiLibrero.Models.Books
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Libro</h2>
+
+<h3>¿Desea eliminar el libro?</h3>
+<div>
+    <h4>Books</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <b>Title</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            <b>Description</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+           <b>Page Count</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pageCount)
+        </dd>
+
+        <dt>
+            <b>Excerpt</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.excerpt)
+        </dd>
+
+        <dt>
+            <b>Publish Date</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publishDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
