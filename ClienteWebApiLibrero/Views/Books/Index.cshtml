@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ClienteWebApiLibrero.Models.Books>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Page Count
+        </th>
+        <th>
+            Excerpt
+        </th>
+        <th>
+            Publish Date
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pageCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.excerpt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publishDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edita", "Edit", new { /*id=item.id*/ }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.id })*@ 
+            @Html.ActionLink("Elimina", "Delete", new { /*id=item.id*/ })
+        </td>
+    </tr>
+}
+
+</table>

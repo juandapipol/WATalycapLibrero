@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATalycapLibrero", "WATalyc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA", "DA\DA.csproj", "{BFAC8FEB-D0D4-4EBB-9825-2754F327C14B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteWebApiLibrero", "ClienteWebApiLibrero\ClienteWebApiLibrero.csproj", "{01BDF2D3-8E50-4651-9EE2-81F84C04B99E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BFAC8FEB-D0D4-4EBB-9825-2754F327C14B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFAC8FEB-D0D4-4EBB-9825-2754F327C14B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFAC8FEB-D0D4-4EBB-9825-2754F327C14B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01BDF2D3-8E50-4651-9EE2-81F84C04B99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01BDF2D3-8E50-4651-9EE2-81F84C04B99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01BDF2D3-8E50-4651-9EE2-81F84C04B99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01BDF2D3-8E50-4651-9EE2-81F84C04B99E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
